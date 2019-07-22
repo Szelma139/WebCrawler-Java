@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FXMLDocumentController">
+  <children>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.22605790645879734, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane prefHeight="755.0" prefWidth="242.0">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Baza danych" textAlignment="CENTER" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+              </textFill>
+            </Label>
+                  <Button fx:id="conTest" layoutX="28.0" layoutY="99.0" mnemonicParsing="false" onAction="#goTestConnection" prefHeight="55.0" prefWidth="154.0" text="Testuj Połączenie" />
+                  <TextField fx:id="conDatabaseName" layoutX="28.0" layoutY="190.0" />
+                  <TextField fx:id="conHostName" layoutX="28.0" layoutY="250.0" />
+                  <TextField fx:id="conPassword" layoutX="28.0" layoutY="301.0" />
+                  <Label layoutX="60.0" layoutY="165.0" text="Database name" />
+                  <Label layoutX="73.0" layoutY="224.0" text="Host name" />
+                  <Label layoutX="76.0" layoutY="283.0" text="Password" />
+                  <Button layoutX="31.0" layoutY="345.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="154.0" text="Połącz" />
+                  <Button fx:id="cleanButton" layoutX="33.0" layoutY="430.0" mnemonicParsing="false" onAction="#goClean" prefHeight="55.0" prefWidth="154.0" text="Wyczyść bazę" />
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="546.0" prefWidth="482.0">
+              <children>
+                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <View layoutX="230.0" layoutY="245.0" />
+                        <TableView fx:id="tableUrl" layoutX="2.0" layoutY="61.0" prefHeight="474.0" prefWidth="488.0">
+                          <columns>
+                            <TableColumn fx:id="columnDomena" prefWidth="113.60003519058228" text="Domena" />
+                            <TableColumn fx:id="columnNazwa" prefWidth="169.59998321533203" text="Nazwa" />
+                              <TableColumn fx:id="columnAdresip" prefWidth="165.60006713867188" text="IP" />
+                          </columns>
+                        </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <AnchorPane>
+          <children>
+            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <Button fx:id="conLinkButton" layoutX="33.0" layoutY="162.0" mnemonicParsing="false" onAction="#startCrawling" prefHeight="55.0" prefWidth="154.0" text="Rozpocznij szukanie" />
+                  <TextField id="conPhrase" fx:id="conLink" layoutX="34.0" layoutY="110.0" text="http://www.netinstructions.com" />
+                  <TextField fx:id="conPagesToVisit" layoutX="33.0" layoutY="325.0" />
+                  <Label layoutX="82.0" layoutY="301.0" text="Pages to visit" />
+                  <Button fx:id="Stop" layoutX="82.0" layoutY="232.0" mnemonicParsing="false" onAction="#stopProgram" text="Stop" />
+                  <TextField fx:id="conIgnore" layoutX="43.0" layoutY="448.0" />
+                  <Button fx:id="conButtonIgnore" layoutX="39.0" layoutY="484.0" mnemonicParsing="false" text="Dodaj do ignorowanych" onAction="#addToIgnored" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="19.0" prefWidth="775.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
